@@ -1,25 +1,20 @@
 {
-  "name": "udacity-c2-image-filter",
+  "name": "udacity-image-filter-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf www/ || true",
     "build": "npm run clean && tsc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
-    "dev": "ts-node-dev ./src/server.ts"
+    "dev": "ts-node-dev ./src/server.ts",
+    "first-setup": "eb init --profile ud && eb create --profile ud",
+    "deploy": "eb deploy",
+    "cleanup:env": "eb terminate ImageFilterAPI-dev --profile ud",
+    "cleanup:all": "eb terminate --all --profile ud"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/grutt/udacity-c2-image-filter.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/grutt/udacity-c2-image-filter/issues"
-  },
-  "homepage": "https://github.com/grutt/udacity-c2-image-filter#readme",
+  "author": "Pablo",
   "devDependencies": {
     "@types/bluebird": "^3.5.33",
     "@types/express": "^4.17.0",
